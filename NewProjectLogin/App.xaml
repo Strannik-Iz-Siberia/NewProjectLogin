@@ -5,6 +5,7 @@
              StartupUri="/View/MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
+            <RoutedUICommand x:Key="GotoPage" Text="Перейти на страницу"/>
             <ResourceDictionary.MergedDictionaries>
            
                 <ResourceDictionary Source="View/Themes/Light.xaml"/>
