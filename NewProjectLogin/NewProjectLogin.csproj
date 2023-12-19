@@ -59,14 +59,21 @@
     <Compile Include="Models\PageStyle.cs" />
     <Compile Include="Models\RelayCommand.cs" />
     <Compile Include="Models\UserModel.cs" />
+    <Compile Include="ViewModel\EditUserViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\RegisterViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="View\AdminMain.xaml.cs">
       <DependentUpon>AdminMain.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\EditUser.xaml.cs">
+      <DependentUpon>EditUser.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\HomeMain.xaml.cs">
       <DependentUpon>HomeMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PageAdmin\PageEdit.xaml.cs">
+      <DependentUpon>PageEdit.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\PageHome\CoupleStudent.xaml.cs">
       <DependentUpon>CoupleStudent.xaml</DependentUpon>
@@ -84,6 +91,10 @@
       <DependentUpon>RegisterPage.xaml</DependentUpon>
     </Compile>
     <Page Include="View\AdminMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EditUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -110,6 +121,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\PageAdmin\PageEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\PageHome\CoupleStudent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -171,7 +186,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Commands\" />
-    <Folder Include="View\PageAdmin\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\add-user-xxl.png" />

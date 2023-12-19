@@ -23,5 +23,44 @@ namespace NewProjectLogin.View
         {
             InitializeComponent();
         }
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+            Application.Current.Shutdown();
+
+        }
+
+        private void btnRestore_Click(object sender, RoutedEventArgs e)
+        {
+            if (WindowState == WindowState.Normal)
+                WindowState = WindowState.Maximized;
+            else
+                WindowState = WindowState.Normal;
+        }
+
+        private void btnMinimize_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+
+
+
+        private void rdEdit_Click(object sender, RoutedEventArgs e)
+        {
+            PagesNavigation.Navigate(new Uri("View/PageAdmin/PageEdit.xaml", UriKind.Relative));
+
+        }
+
+        private void rdRaspisanie_Click(object sender, RoutedEventArgs e)
+        {
+            PagesNavigation.Navigate(new Uri("View/PageHome/InfoStudent.xaml", UriKind.Relative));
+
+        }
+
+        private void rdHome_Click(object sender, RoutedEventArgs e)
+        {
+            PagesNavigation.Navigate(new Uri("View/PageHome/CoupleStudent.xaml", UriKind.Relative));
+
+        }
     }
 }
