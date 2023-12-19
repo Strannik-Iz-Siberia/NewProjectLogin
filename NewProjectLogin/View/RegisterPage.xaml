@@ -5,11 +5,13 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:NewProjectLogin.View"
       xmlns:viewmodel ="clr-namespace:NewProjectLogin.ViewModel"
+      xmlns:Models ="clr-namespace:NewProjectLogin.Models"
+
       mc:Ignorable="d" 
           Title="Login" Height="500" Width="350" 
     FontFamily="Segoe UI Emoji">
     <Page.DataContext>
-        <viewmodel:LoginViewModel/>
+        <viewmodel:RegisterViewModel/>
     </Page.DataContext>
     <Grid>
         <StackPanel Background="{DynamicResource reg}" Margin="135,60,135,363"/>
@@ -85,9 +87,11 @@
                 </Grid>
             </Border>
         </Grid>
-        <Button x:Name="BtnRegistration" Width="117" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="53,0,0,22" Content="Регистрация" Style="{StaticResource mainButton}" Command="{Binding AddUserCommand}"
+        <Button x:Name="BtnRegistration" Width="117" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="53,0,0,22" Content="Регистрация" Style="{StaticResource mainButton}" 
+                Command="{Binding AddUserCommand}"
              />
-        <Button x:Name="Btn_Back" Width="100" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="198,0,0,22" Content="Назад" Style="{StaticResource mainButton}"/>
+        <Button x:Name="Btn_Back" Width="100" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="198,0,0,22" Content="Назад" Style="{StaticResource mainButton}"
+                Command="{StaticResource GotoPage}" CommandParameter="{x:Static Models:PageTypes.LoginPage }"/>
 
 
     </Grid>

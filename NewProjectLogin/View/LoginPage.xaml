@@ -6,6 +6,7 @@
       xmlns:local="clr-namespace:NewProjectLogin.View"
       xmlns:pd ="clr-namespace:NewProjectLogin.View"
       xmlns:viewmodel="clr-namespace:NewProjectLogin.ViewModel"
+      xmlns:Models ="clr-namespace:NewProjectLogin.Models"
 
       mc:Ignorable="d" 
       Title="LoginPage" Height="500" Width="350" 
@@ -58,7 +59,8 @@
             <TextBlock Text="Нет аккаунта? Тогда зарегистрируйтесь!" Margin="11,207,-11,11" Style="{StaticResource textHint}"/>
         </Grid>
         <Button x:Name="Login" Width="100" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="46,0,0,22" Content="ВОЙТИ" Style="{StaticResource mainButton}" Command="{Binding LoginCommand}" />
-        <Button x:Name="Btn_Register" Width="141" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="157,0,0,22" Content="РЕГИСТРАЦИЯ" Style="{StaticResource mainButton}"/>
+        <Button x:Name="Btn_Register" Width="141" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="157,0,0,22" Content="РЕГИСТРАЦИЯ" Style="{StaticResource mainButton}"
+               Command="{StaticResource GotoPage}" CommandParameter="{x:Static Models:PageTypes.RegisterPage }"/>
     </Grid>
 
     <Page.Triggers>

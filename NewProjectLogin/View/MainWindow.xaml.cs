@@ -73,29 +73,5 @@ namespace NewProjectLogin
 
 
 
-        private void Themes_Click(object sender, RoutedEventArgs e)
-        {
-            if (IsDarkTheme)
-            {
-                // Применить светлую тему 
-                ResourceDictionary lightTheme = new ResourceDictionary() { Source = new Uri("Themes/Light.xaml", UriKind.Relative) };
-
-                Application.Current.Resources.MergedDictionaries.Add(lightTheme);
-
-
-
-            }
-            else
-            {
-                // Применить темную тему 
-                ResourceDictionary darkTheme = new ResourceDictionary() { Source = new Uri("Themes/Dark.xaml", UriKind.Relative) };
-                Application.Current.Resources.MergedDictionaries.Add(darkTheme);
-
-
-            }
-
-            IsDarkTheme = !IsDarkTheme;
-
-        }
     }
 }

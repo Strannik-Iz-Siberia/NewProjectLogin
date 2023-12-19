@@ -43,7 +43,6 @@ namespace NewProjectLogin.ViewModel
             _dataBaseLogic = new DataBaseLogic("Data Source=dbs.mssql.app.biik.ru;Initial Catalog=NewVariantLogDB;Integrated Security=True;Encrypt=False");
             LoginCommand = new RelayCommand(Login);
             NewUser = new UserModel();
-            AddUserCommand = new RelayCommand(AddUser);
             EditUserCommand = new RelayCommand(EditUser);
             SwitchOn = new RelayCommand(SwitchOnThemes);
         }
@@ -81,10 +80,7 @@ namespace NewProjectLogin.ViewModel
             throw new NotImplementedException();
         }
 
-        private void AddUser()
-        {
-            throw new NotImplementedException();
-        }
+        
 
         public UserModel NewUser
         {
@@ -97,7 +93,6 @@ namespace NewProjectLogin.ViewModel
         }
 
         public ICommand LoginCommand { get; private set; }
-        public ICommand AddUserCommand { get; private set; }
 
         public ICommand EditUserCommand { get; private set; }
 
