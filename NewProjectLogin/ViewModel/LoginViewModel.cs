@@ -45,7 +45,36 @@ namespace NewProjectLogin.ViewModel
             NewUser = new UserModel();
             AddUserCommand = new RelayCommand(AddUser);
             EditUserCommand = new RelayCommand(EditUser);
+            SwitchOn = new RelayCommand(SwitchOnThemes);
         }
+
+        private void SwitchOnThemes()
+        {
+            if (thisTheme == "Dark")
+            {
+                thisTheme = "Light";
+
+
+
+                ResourceDictionary lightTheme = new ResourceDictionary() { Source = new Uri("View/Themes/Light.xaml", UriKind.Relative) };
+
+                Application.Current.Resources.MergedDictionaries.Add(lightTheme);
+            }
+            else
+
+            {
+                thisTheme = "Dark";
+
+                // Применить темную тему 
+                ResourceDictionary darkTheme = new ResourceDictionary() { Source = new Uri("View/Themes/Dark.xaml", UriKind.Relative) };
+                Application.Current.Resources.MergedDictionaries.Add(darkTheme);
+
+
+            }
+        }
+
+        private string thisTheme = "Light";
+
 
         private void EditUser()
         {
@@ -71,6 +100,8 @@ namespace NewProjectLogin.ViewModel
         public ICommand AddUserCommand { get; private set; }
 
         public ICommand EditUserCommand { get; private set; }
+
+        public ICommand SwitchOn { get; set; }
 
         private void Login()
         {
@@ -117,6 +148,7 @@ namespace NewProjectLogin.ViewModel
                 MessageBox.Show("Пользователь не обнаружен.");
             }
         }
+
 
 
        

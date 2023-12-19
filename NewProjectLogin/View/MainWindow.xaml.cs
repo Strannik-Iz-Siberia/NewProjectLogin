@@ -1,5 +1,6 @@
 ﻿using NewProjectLogin.Models;
 using NewProjectLogin.View;
+using NewProjectLogin.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,7 @@ namespace NewProjectLogin
 
             InitializeComponent();
             OpenPage(PageTypes.LoginPage); // открываем авторизацию
+            DataContext = new LoginViewModel();
 
         }
 

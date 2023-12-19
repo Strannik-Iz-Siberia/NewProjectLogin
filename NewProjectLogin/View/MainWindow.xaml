@@ -57,11 +57,12 @@
                 </Button.Template>
             </Button>
             <ToggleButton x:Name="Themes" 
-IsChecked="False"
-Click="Themes_Click"
-Style="{DynamicResource ToggleButtonStyle}"
-               Canvas.Right="300" HorizontalAlignment="Left" Canvas.Left="438" VerticalAlignment="Top" RenderTransformOrigin="-1.561,0.58" Canvas.Top="72"
-                Margin="755,60,0,0"/>
+                          IsChecked="False"
+                          Style="{DynamicResource ToggleButtonStyle}"
+
+                          Canvas.Right="300" HorizontalAlignment="Left" Canvas.Left="438" VerticalAlignment="Top" RenderTransformOrigin="-1.561,0.58" Canvas.Top="72"
+                          Margin="755,60,0,0"
+                          Command="{Binding SwitchOn}"/>
         </Grid>
 
         <Border.Triggers>
