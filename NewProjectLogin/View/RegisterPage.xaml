@@ -4,11 +4,129 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:NewProjectLogin.View"
+      xmlns:viewmodel ="clr-namespace:NewProjectLogin.ViewModel"
       mc:Ignorable="d" 
-      d:DesignHeight="500" d:DesignWidth="300"
-      Title="RegisterPage">
-
+          Title="Login" Height="500" Width="350" 
+    FontFamily="Segoe UI Emoji">
+    <Page.DataContext>
+        <viewmodel:LoginViewModel/>
+    </Page.DataContext>
     <Grid>
-        
+        <StackPanel Background="{DynamicResource reg}" Margin="135,60,135,363"/>
+        <Border Width="280" Height="316" VerticalAlignment="Top" Margin="35,142,35,0" Background="{DynamicResource Background}" x:Name="Reg" CornerRadius="20" BorderThickness="2">
+            <Border CornerRadius="10"                    
+     BorderThickness="2"
+     Opacity="0.95">
+                <Border.BorderBrush>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="{DynamicResource c1}" Offset="0"/>
+                        <GradientStop Color="{DynamicResource c2}" Offset="0.55"/>
+                        <GradientStop Color="{DynamicResource c3}" Offset="0.75"/>
+                        <GradientStop Color="{DynamicResource c4}" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.BorderBrush>
+                <Border  BorderBrush="#ACB0AF" BorderThickness="1" Margin="3,129,3,137" CornerRadius="5" x:Name="br6">
+                    <Grid Margin="7 7">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock x:Name="textLastName"  Text="Фамилия" Style="{StaticResource textHint}" MouseDown="textLastName_MouseDown" Grid.ColumnSpan="2" Margin="29,0,0,0" />
+                        <TextBox x:Name="txtLastName"  Style="{StaticResource textBox}" Background="Transparent" TextChanged="txtLastName_TextChanged"  Text="{Binding NewUser.LastName}" Grid.ColumnSpan="2" Margin="29,0,0,0"/>
+                    </Grid>
+                </Border>
+            </Border>
+        </Border>
+
+        <Grid VerticalAlignment="Bottom" Margin="35,80" Height="240">
+            <TextBlock x:Name="Title" Text="РЕГИСТРАЦИЯ"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,-23,0,0" Foreground="{DynamicResource Title}" FontSize="18" Style="{StaticResource TitleText}"/>
+            <Border  BorderBrush="#ACB0AF" BorderThickness="1" Margin="10,6,10,194" CornerRadius="5" x:Name="br1">
+                <Grid Margin="7 7">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image Source="/Images/Email.png" Height="20" />
+                    <TextBlock x:Name="textMail"  Text="Email" Style="{StaticResource textHint}" MouseDown="textMail_MouseDown" />
+                    <TextBox Name="txtMail"  Style="{StaticResource textBox}" Background="Transparent" TextChanged="txtMail_TextChanged"  Text="{Binding NewUser.Email}"/>
+                </Grid>
+            </Border>
+            <Border  BorderBrush="#ACB0AF" BorderThickness="1" Margin="7,51,7,144" CornerRadius="5" x:Name="br5">
+                <Grid Margin="7 7">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image Source="/Images/add-user-xxl.png" Margin="-5,15,221,-25" Grid.ColumnSpan="2" />
+                    <TextBlock x:Name="textName"  Text="Имя" Style="{StaticResource textHint}" MouseDown="textName_MouseDown" Grid.ColumnSpan="2" Margin="29,0,0,0" />
+                    <TextBox Name="txtName"  Style="{StaticResource textBox}" Background="Transparent" TextChanged="txtName_TextChanged"  Text="{Binding NewUser.Name}" Grid.ColumnSpan="2" Margin="29,0,0,0"/>
+                </Grid>
+            </Border>
+            <Border BorderBrush="#ACB0AF" BorderThickness="1" Margin="6,141,6,57" CornerRadius="5" x:Name="br2">
+                <Grid Margin="7 7">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image Source="/Images/Email.png" Height="20" />
+                    <TextBlock x:Name="textUser"  Text="Пользователь" Style="{StaticResource textHint}" MouseDown="textUser_MouseDown" />
+                    <TextBox Name="txtUser"  Style="{StaticResource textBox}" Background="Transparent" TextChanged="txtUser_TextChanged"  Text="{Binding NewUser.Username}"/>
+                </Grid>
+            </Border>
+
+            <Border BorderBrush="#ACB0AF" BorderThickness="1" Margin="7,188,7,10" CornerRadius="5" x:Name="br3">
+                <Grid Margin="6 ">
+                    <Image Source="/Images/Lock.png" Height="20" Margin="0,4,226,4" />
+                    <TextBlock x:Name="textPassword"  Text="Пароль" Style="{StaticResource textHint}" Margin="31,0,0,0"  MouseDown="textPassword_MouseDown_1" />
+                    <TextBox x:Name="passwordBox"  Style="{StaticResource textBox}" Margin="31,0,0,0"  TextChanged="passwordBox_TextChanged" Background="Transparent"  Text="{Binding NewUser.Password}"/>
+                </Grid>
+            </Border>
+        </Grid>
+        <Button x:Name="BtnRegistration" Width="117" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="53,0,0,22" Content="Регистрация" Style="{StaticResource mainButton}" Command="{Binding AddUserCommand}"
+             />
+        <Button x:Name="Btn_Back" Width="100" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="198,0,0,22" Content="Назад" Style="{StaticResource mainButton}"/>
+
+
     </Grid>
+
+    <Page.Triggers>
+        <EventTrigger RoutedEvent="Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetName="Reg" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:1" />
+                    <DoubleAnimation Storyboard.TargetName="textUser" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:1" />
+                    <DoubleAnimation Storyboard.TargetName="txtUser" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:1" />
+                    <DoubleAnimation Storyboard.TargetName="Btn_Back" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:1" />
+                    <DoubleAnimation Storyboard.TargetName="BtnRegistration" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:1" />
+                    <DoubleAnimation Storyboard.TargetName="textPassword" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:1" />
+                    <DoubleAnimation Storyboard.TargetName="passwordBox" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:1" />
+                    <DoubleAnimation Storyboard.TargetName="Title" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:1" />
+
+
+                    <DoubleAnimation Storyboard.TargetName="textMail" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:1" />
+                    <DoubleAnimation Storyboard.TargetName="txtMail" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:1" />
+
+                    <DoubleAnimation Storyboard.TargetName="textName" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:1" />
+                    <DoubleAnimation Storyboard.TargetName="txtName" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:1" />
+
+                    <DoubleAnimation Storyboard.TargetName="textLastName" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:1" />
+                    <DoubleAnimation Storyboard.TargetName="txtLastName" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:1" />
+
+                    <DoubleAnimation Storyboard.TargetName="br1" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:1" />
+                    <DoubleAnimation Storyboard.TargetName="br2" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:1" />
+                    <DoubleAnimation Storyboard.TargetName="br3" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:1" />
+                    <DoubleAnimation Storyboard.TargetName="br5" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:1" />
+                    <DoubleAnimation Storyboard.TargetName="br6" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:1" />
+
+
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Page.Triggers>
+
+
 </Page>
+
