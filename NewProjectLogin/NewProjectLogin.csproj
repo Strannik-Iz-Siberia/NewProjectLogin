@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\DataBaseLogic.cs" />
     <Compile Include="Models\PageStyle.cs" />
     <Compile Include="Models\RelayCommand.cs" />
     <Compile Include="Models\UserModel.cs" />
