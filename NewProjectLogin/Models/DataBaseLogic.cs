@@ -70,11 +70,6 @@ namespace NewProjectLogin.Models
 
         public void AddUser(UserModel NewUser)
         {
-            if (string.IsNullOrEmpty(NewUser.Username) || string.IsNullOrEmpty(NewUser.Name) || string.IsNullOrEmpty(NewUser.Email) || string.IsNullOrEmpty(NewUser.LastName) || string.IsNullOrEmpty(NewUser.Password))
-            {
-                MessageBox.Show("Не введены данные!");
-                return;
-            }
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -131,5 +126,7 @@ namespace NewProjectLogin.Models
                 connection.Close();
             }
         }
+
+
     }
 }

@@ -42,7 +42,6 @@ namespace NewProjectLogin.ViewModel
         {
             _dataBaseLogic = new DataBaseLogic("Data Source=dbs.mssql.app.biik.ru;Initial Catalog=NewVariantLogDB;Integrated Security=True;Encrypt=False");
             LoginCommand = new RelayCommand(Login);
-            NewUser = new UserModel();
             EditUserCommand = new RelayCommand(EditUser);
             SwitchOn = new RelayCommand(SwitchOnThemes);
         }
@@ -82,15 +81,7 @@ namespace NewProjectLogin.ViewModel
 
         
 
-        public UserModel NewUser
-        {
-            get { return newUser; }
-            set
-            {
-                newUser = value;
-                OnPropertyChanged(nameof(NewUser));
-            }
-        }
+        
 
         public ICommand LoginCommand { get; private set; }
 
