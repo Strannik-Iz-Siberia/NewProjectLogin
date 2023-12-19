@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows;
 using NewProjectLogin.Models;
+using NewProjectLogin.View;
 
 namespace NewProjectLogin.ViewModel
 {
@@ -91,8 +92,9 @@ namespace NewProjectLogin.ViewModel
 
         private void Login()
         {
-            //HomeMain hm = new HomeMain();
-            MainWindow adminMain = new MainWindow();
+
+            HomeMain hm = new HomeMain();
+            AdminMain adminMain = new AdminMain();
             MainWindow mainWindow = new MainWindow();
             mainWindow.Close();
 
@@ -125,7 +127,7 @@ namespace NewProjectLogin.ViewModel
                 else
                 {
                     App.Current.Windows[0].Close();
-                    //hm.Show();
+                    hm.Show();
                     mainWindow.Close();
                 }
             }

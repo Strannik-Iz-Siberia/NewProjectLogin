@@ -62,12 +62,35 @@
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\RegisterViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Compile Include="View\AdminMain.xaml.cs">
+      <DependentUpon>AdminMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\HomeMain.xaml.cs">
+      <DependentUpon>HomeMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PageHome\CoupleStudent.xaml.cs">
+      <DependentUpon>CoupleStudent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PageHome\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PageHome\InfoStudent.xaml.cs">
+      <DependentUpon>InfoStudent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\PasswordUserControl.xaml.cs">
       <DependentUpon>PasswordUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\RegisterPage.xaml.cs">
       <DependentUpon>RegisterPage.xaml</DependentUpon>
     </Compile>
+    <Page Include="View\AdminMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\HomeMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\LoginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -87,6 +110,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\PageHome\CoupleStudent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PageHome\HomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PageHome\InfoStudent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\PasswordUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -136,6 +171,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Commands\" />
+    <Folder Include="View\PageAdmin\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\add-user-xxl.png" />
