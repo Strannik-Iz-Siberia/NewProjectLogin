@@ -15,7 +15,7 @@ namespace NewProjectLogin.Models
     {
         private string connectionString = "Data Source=dbs.mssql.app.biik.ru;Initial Catalog=NewVariantLogDB;Integrated Security=True;Encrypt=False";
 
-        public DataBaseLogic(string connectString) 
+        public DataBaseLogic(string connectString)
         {
             this.connectionString = connectString;
         }
@@ -130,162 +130,16 @@ namespace NewProjectLogin.Models
             }
         }
 
-        //public void DeleteUser(object sender, RoutedEventArgs e)
-        //{
-        //    if (BDGrid.SelectedItem != null)
-        //    {
-        //        // Получаем выделенную строку
-        //        DataRowView selectedUser = (DataRowView)BDGrid.SelectedItem;
-
-        //        // Получаем имя пользователя, которого нужно удалить
-        //        string userName = selectedUser["Username"].ToString();
-
-        //        try
-        //        {
-        //            using (SqlConnection connection = new SqlConnection("Data Source=dbs.mssql.app.biik.ru;Initial Catalog=NewVariantLogDB;Integrated Security=True;Encrypt=False"))
-        //            {
-        //                connection.Open();
-
-        //                string query = $"DELETE FROM [User] WHERE Username = '{userName}'";
-
-        //                using (SqlCommand command = new SqlCommand(query, connection))
-        //                {
-        //                    command.ExecuteNonQuery();
-        //                }
-        //                string update = "SELECT * FROM [User]";
-        //                SqlDataAdapter dataAdapter = new SqlDataAdapter(update, connection);
-        //                DataTable dataTable = new DataTable();
-        //                dataAdapter.Fill(dataTable);
-        //                BDGrid.ItemsSource = dataTable.DefaultView;
-        //            }
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            //  возможные ошибки
-        //        }
-        //    }
-        //    else
-        //    {
-        //        //  когда пользователь не выбран для удаления
-        //    }
-        //}
-
-        //public void UpdateDataBase(object sender, RoutedEventArgs e)
-        //{
-        //    try
-        //    {
-        //        using (SqlConnection connection = new SqlConnection("Data Source=dbs.mssql.app.biik.ru;Initial Catalog=NewVariantLogDB;Integrated Security=True;Encrypt=False"))
-        //        {
-        //            connection.Open();
-        //            string update = "SELECT * FROM [User]";
-        //            SqlDataAdapter dataAdapter = new SqlDataAdapter(update, connection);
-        //            DataTable dataTable = new DataTable();
-        //            dataAdapter.Fill(dataTable);
-        //            BDGrid.ItemsSource = dataTable.DefaultView;
-        //        }
-        //    }
-        //    catch
-        //    {
-
-        //    }
-
-        //}
-
-        //public void AddNewUser(object sender, RoutedEventArgs e)
-        //{
-        //    AdminMain ad = new AdminMain();
-        //    ad.Close();
-        //    //AddUser au = new AddUser();
-        //    //au.Show();
-
-        //}
-
-        //public void BlockedUser(object sender, RoutedEventArgs e)
-        //{
-        //    if (BDGrid.SelectedItem != null)
-        //    {
-        //        // Получаем выделенную строку
-        //        DataRowView selectedUser = (DataRowView)BDGrid.SelectedItem;
-        //        // Получаем имя пользователя, которого нужно заблокировать
-        //        string userName = selectedUser["UserName"].ToString();
-
-        //        try
-        //        {
-        //            using (SqlConnection connection = new SqlConnection("Data Source=dbs.mssql.app.biik.ru;Initial Catalog=NewVariantLogDB;Integrated Security=True;Encrypt=False"))
-        //            {
-        //                connection.Open();
-        //                // Создаем SQL-запрос для обновления статуса блокировки пользователя
-        //                string query = $"UPDATE [User] SET Blocked = 'YES' WHERE Username = '{userName}'";
-        //                using (SqlCommand command = new SqlCommand(query, connection))
-        //                {
-        //                    // Выполняем запрос
-        //                    command.ExecuteNonQuery();
-        //                }
-        //                string update = "SELECT * FROM [User]";
-        //                SqlDataAdapter dataAdapter = new SqlDataAdapter(update, connection);
-        //                DataTable dataTable = new DataTable();
-        //                dataAdapter.Fill(dataTable);
-        //                BDGrid.ItemsSource = dataTable.DefaultView;
-        //            }
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            // Обрабатываем возможные ошибки
-        //        }
-        //    }
-        //    else
-        //    {
-        //        // Обработка случая, когда пользователь не выбран для блокировки
-        //    }
-        //}
-
-        //public void UnlockUser(object sender, RoutedEventArgs e)
-        //{
-        //    if (BDGrid.SelectedItem != null)
-        //    {
-        //        // Получаем выделенную строку
-        //        DataRowView selectedUser = (DataRowView)BDGrid.SelectedItem;
-        //        // Получаем имя пользователя, которого нужно разблокировать
-        //        string userName = selectedUser["UserName"].ToString();
-
-        //        try
-        //        {
-        //            using (SqlConnection connection = new SqlConnection("Data Source=dbs.mssql.app.biik.ru;Initial Catalog=NewVariantLogDB;Integrated Security=True;Encrypt=False"))
-        //            {
-        //                connection.Open();
-        //                // Создаем SQL-запрос для обновления статуса блокировки пользователя
-        //                string query = $"UPDATE [User] SET Blocked = 'NO' WHERE Username = '{userName}'";
-        //                using (SqlCommand command = new SqlCommand(query, connection))
-        //                {
-        //                    // Выполняем запрос
-        //                    command.ExecuteNonQuery();
-        //                }
-        //                string update = "SELECT * FROM [User]";
-        //                SqlDataAdapter dataAdapter = new SqlDataAdapter(update, connection);
-        //                DataTable dataTable = new DataTable();
-        //                dataAdapter.Fill(dataTable);
-        //                BDGrid.ItemsSource = dataTable.DefaultView;
-        //            }
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            // Обрабатываем возможные ошибки
-        //        }
-        //    }
-        //    else
-        //    {
-        //        // Обработка случая, когда пользователь не выбран для блокировки
-        //    }
-        //}
+      
         public DataTable LoadDataBase()
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                connection.Open ();
+                connection.Open();
 
                 string load = "SELECT * FROM [User]";
 
-                using(SqlCommand command = new SqlCommand(load,connection))
+                using (SqlCommand command = new SqlCommand(load, connection))
                 {
                     using (SqlDataAdapter adapter = new SqlDataAdapter(command))
                     {
@@ -296,5 +150,53 @@ namespace NewProjectLogin.Models
                 }
             }
         }
+        public void DeleteUser(UserModel user)
+        {
+            using (SqlConnection connection = new SqlConnection("Data Source=dbs.mssql.app.biik.ru;Initial Catalog=NewVariantLogDB;Integrated Security=True;Encrypt=False"))
+            {
+                connection.Open();
+
+                string query = $"DELETE FROM [User] WHERE Username = '{user.Username}'";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.ExecuteNonQuery();
+                }
+
+            }
+        }
+        public void BlockedUser(UserModel user)
+        {
+            using (SqlConnection connection = new SqlConnection("Data Source=dbs.mssql.app.biik.ru;Initial Catalog=NewVariantLogDB;Integrated Security=True;Encrypt=False"))
+            {
+                connection.Open();
+                // Создаем SQL-запрос для обновления статуса блокировки пользователя
+                string query = $"UPDATE [User] SET Blocked = 'YES' WHERE Username = '{user.Username}'";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    // Выполняем запрос
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void UnBlocked(UserModel user)
+        {
+            using (SqlConnection connection = new SqlConnection("Data Source=dbs.mssql.app.biik.ru;Initial Catalog=NewVariantLogDB;Integrated Security=True;Encrypt=False"))
+            {
+                connection.Open();
+                // Создаем SQL-запрос для обновления статуса блокировки пользователя
+                string query = $"UPDATE [User] SET Blocked = 'NO' WHERE Username = '{user.Username}'";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    // Выполняем запрос
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+
+
+
     }
 }

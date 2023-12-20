@@ -8,20 +8,20 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PageEdit">
-    
+
 
 
     <Grid>
 
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="70" />
         </Grid.RowDefinitions>
 
-        <DataGrid Grid.Row="0" Grid.Column="1" x:Name="BDGrid" AutoGenerateColumns="False" AlternatingRowBackground="Gray" 
+        <DataGrid Grid.Row="0" x:Name="DataBaseGrid" AutoGenerateColumns="False" AlternatingRowBackground="{DynamicResource Background}" 
                GridLinesVisibility="None" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" 
-               SelectionMode="Single" SelectionUnit="FullRow"  Grid.ColumnSpan="2" Style="{DynamicResource GridStyle}" IsReadOnly="True" ItemsSource="{Binding Users}">
+               SelectionMode="Single" SelectionUnit="FullRow" Style="{DynamicResource GridStyle}" SelectedItem="{Binding SelectedUser, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" ItemsSource="{Binding Users}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Заблокирован" Binding="{Binding Blocked}" Width="*" />
                 <DataGridTextColumn Header="Имя" Binding="{Binding Name}" Width="*" />
@@ -32,19 +32,18 @@
         </DataGrid>
 
 
-        <StackPanel Grid.Row="1" Orientation="Horizontal" Height="50">
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,1,0,1">
 
-            <Button Content="Изменить пользователя" Margin="6" Width="148" x:Name="EditBtn" Command="{Binding EditUserCommand}" />
-            <Button Content="Добавить пользователя" Margin="10,0,0,0" Height="40" Width="154" x:Name="Addbtn" />
+            <Button Content="Изменить" Margin="6" Width="148" x:Name="EditBtn" Command="{Binding EditUserCommand}" Style="{StaticResource mainButton}"/>
+            <Button Content="Добавить" Margin="6" Height="58" Width="154" x:Name="Addbtn" Command="{Binding AddUserCommand}" Style="{StaticResource mainButton}"/>
 
-            <Button Content="Удалить пользователеля" Margin="20,0,0,0" Height="40" Width="140" x:Name="DeleteBtn"/>
+            <Button Content="Удалить" Margin="20,0,0,0" Height="52" Width="140" x:Name="DeleteBtn" Command="{Binding DeleteUserCommand}" Style="{StaticResource mainButton}" />
 
-            <Button Content="Заблокировать" Margin="10,0,0,0" Height="40" Width="135" x:Name="BlockedUser" />
+            <Button Content="Заблокировать" Margin="30,0,0,0" Height="56" Width="135" x:Name="BlockedUser" Command="{Binding BlockedUserCommand}" Style="{StaticResource mainButton}"/>
 
-            <Button Content="Разблокировать" Margin="10,0,0,0" Height="40" Width="135" x:Name="UnlockUser" />
+            <Button Content="Разблокировать" Margin="20,0,0,0" Height="58" Width="135" x:Name="UnlockUser" Style="{StaticResource mainButton}"  Command="{Binding UnBlockUserCommand}"/>
 
 
-            <Button Content="Обновить Базу Данных" Margin="10,0,0,0" Height="40" Width="147" x:Name="updateBtn" />
 
         </StackPanel>
     </Grid>

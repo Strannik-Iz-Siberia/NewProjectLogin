@@ -4,11 +4,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NewProjectLogin.View"
+                xmlns:viewmodel ="clr-namespace:NewProjectLogin.ViewModel"
+
           mc:Ignorable="d"
     Title="AdminMain" Height="650" Width="1000"
     WindowStartupLocation="CenterScreen" WindowStyle="None"
     Background="Transparent" AllowsTransparency="True"
     ResizeMode="NoResize" WindowState="Normal">
+    <Window.DataContext>
+        <viewmodel:LoginViewModel/>
+    </Window.DataContext>
 
     <Border CornerRadius="8" Background="{DynamicResource back}">
 
@@ -65,8 +70,8 @@
                             </Ellipse.Fill>
                         </Ellipse>
                         <StackPanel Orientation="Vertical" Margin="8 0 0 0">
-                            <TextBlock Text="Админ" x:Name="l1" Foreground="{DynamicResource TextPrimaryColor}" FontSize="14" FontWeight="SemiBold"  HorizontalAlignment="Left"/>
-                            <Label Content="Почта@mail.ru" Foreground="{DynamicResource PrimaryGrayColor}" FontSize="11" FontWeight="Regular" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="0 -10 0 0"/>
+                            <TextBlock Text="Админ" x:Name="l1" Foreground="{DynamicResource Title}" FontSize="14" FontWeight="SemiBold"  HorizontalAlignment="Left"/>
+                            <Label Content="Почта@mail.ru" Foreground="{DynamicResource Title}" FontSize="11" FontWeight="Regular" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="0 -10 0 0"/>
                         </StackPanel>
                     </StackPanel>
 
@@ -95,7 +100,7 @@
                             </Style>
                         </Button.Style>
                     </Button>
-                    <Button x:Name="btnMinimize" Style="{DynamicResource IconButtonsStyle}" Content="{DynamicResource minimize}" Click="btnMinimize_Click" Background="{DynamicResource Background}" Foreground="{DynamicResource textbx}"/>
+                    <Button x:Name="btnMinimize" Style="{DynamicResource IconButtonsStyle}" Content="{DynamicResource minimize}" Click="btnMinimize_Click"  Foreground="{DynamicResource textbx}"/>
                     <ToggleButton  Style="{DynamicResource ToggleButtonStyle}" 
                                x:Name="Themes" 
                                IsChecked="False"
@@ -109,7 +114,7 @@
                     </Frame>
                 </Border>
             </Grid>
-            <Grid Grid.Row="1" Grid.Column="1" Background="AliceBlue" Opacity="0.5" Panel.ZIndex="0"/>
+            <Grid Grid.Row="1" Grid.Column="1" Background="{DynamicResource BorderBut}" Opacity="0.5" Panel.ZIndex="0"/>
         </Grid>
 
 

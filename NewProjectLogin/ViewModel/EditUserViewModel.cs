@@ -43,6 +43,10 @@ namespace NewProjectLogin.ViewModel
         {
             _dataBaseLogic = new DataBaseLogic("Data Source=dbs.mssql.app.biik.ru;Initial Catalog=NewVariantLogDB;Integrated Security=True;Encrypt=False");
             EditUserCommand = new RelayCommand(EditUser);
+            AddUserCommand = new RelayCommand(AddUser);
+            DeleteUserCommand = new RelayCommand(DeleteUser);
+            BlockedUserCommand = new RelayCommand(Blockeduser);
+            UnBlockUserCommand = new RelayCommand(Unblockuser);
             LoadData();
             NewUser = new UserModel();
         }
@@ -82,10 +86,54 @@ namespace NewProjectLogin.ViewModel
 
         public ICommand EditUserCommand { get; private set; }
 
+        public ICommand AddUserCommand { get; private set; }
+
+        public ICommand DeleteUserCommand { get; private set; }
+
+        public ICommand BlockedUserCommand { get; private set; }
+
+        public ICommand UnBlockUserCommand { get; private set; }
 
 
 
+        private void AddUser()
+        {
+            AddUser ad = new AddUser();
+            ad.ShowDialog();
+        }
 
+        private UserModel _selectedUser;
+
+        public UserModel SelectedUser
+        {
+            get { return _selectedUser; }
+            set
+            {
+                if(_selectedUser != value )
+                {
+                    _selectedUser = value;
+                    OnPropertyChanged(nameof(SelectedUser));
+                }
+            }
+        }
+
+        private void DeleteUser()
+        {
+            _dataBaseLogic.DeleteUser(SelectedUser);
+            LoadData();
+        }
+
+        private void Blockeduser()
+        {
+            _dataBaseLogic.BlockedUser(SelectedUser);
+            LoadData();
+        }
+
+        private void Unblockuser()
+        {
+            _dataBaseLogic.UnBlocked(SelectedUser);
+            LoadData();
+        }
 
     }
 }
